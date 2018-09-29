@@ -8,8 +8,14 @@
   </div>
   <ul>
     <li ng-repeat="post in posts">
-      <span ng-show="post">{{post.title}}</span>
-      <span ng-show="post">{{post.body}}</span>
+      <span>{{post.title}}</span>
+      <p>{{post.body}}</p>
+      <ul>
+        <li ng-repeat="comment in post.comments">
+          <span>{{comment.email}}</span>
+          <p>{{comment.body}}</p>
+        </li>
+      </ul>
     </li>
   </ul>
 </div>

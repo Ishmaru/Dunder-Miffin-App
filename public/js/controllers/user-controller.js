@@ -13,6 +13,13 @@
         }
         return tempArr;
       }
-      $scope.posts = findPosts($stateParams.userId, 'userId', testPosts);
+      var getPostCommentsObject = function(){
+        var tempPostObj = findPosts($stateParams.userId, 'userId', testPosts);
+        tempPostObj.map(function(post){
+          post.comments = findPosts(post.id, 'postId', testComments);
+        })
+        return tempPostObj;
+      }
+      $scope.posts = getPostCommentsObject();
     }]);
 })();
