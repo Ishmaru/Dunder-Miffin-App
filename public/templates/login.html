@@ -2,7 +2,8 @@
 <p>Welcome to the dunder-miffin international network.</p>
 <p>Please enter a username to view your posts and comments.</p>
 <form ng-controller="AuthController">
-  <span ng-show="">Invalid Email</span>
-  <input type="text" name="email" value="Email Address">
-  <input type="submit" value="Submit">
+  <span ng-show="msg">{{msg}}</span>
+  <input type="email" name="email" ng-model="auth">
+  <input type="submit" value="Submit" ng-click="validateEmail()">
+  <p ng-show="user">{{user.name}}</p>
 </form>
