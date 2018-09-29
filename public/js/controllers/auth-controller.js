@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('dunderMiffinApp')
-    .controller('AuthController', ['$scope', '$http', function($scope, $http) {
+    .controller('AuthController', ['UserService', '$window', '$scope', '$http', function(UserService, $window, $scope, $http) {
       $scope.auth = "Your Email Address";
       $scope.msg = "";
       $scope.user = {};
@@ -12,6 +12,10 @@
           $scope.msg = "Invalid Email";
         }else{
           $scope.msg = null;
+        }
+        if($scope.user){
+          UserService.user = $scope.user;
+          $window.location.href = '#!/users/'+$scope.user.id;
         }
       };
       var findUser = function(email, api){
