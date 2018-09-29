@@ -4,15 +4,15 @@
     .module('dunderMiffinApp')
     .controller('UserController', ['$scope', '$http', '$state', '$stateParams', function($scope, $http, $state, $stateParams) {
       $scope.user = null;
-      var findUserPosts = function(userID, postArr){
-        var tempPostArray = [];
-        for (var i = postArr.length - 1; i >= 0; i--) {
-          if(postArr[i].userId === parseInt(userID)){
-            tempPostArray.push(postArr[i]);
+      var findPosts = function(id, idName, arr){
+        var tempArr = [];
+        for (var i = arr.length - 1; i >= 0; i--) {
+          if(arr[i][idName] === parseInt(id)){
+            tempArr.push(arr[i]);
           }
         }
-        return tempPostArray;
+        return tempArr;
       }
-      $scope.posts = findUserPosts($stateParams.userId, testPosts);
+      $scope.posts = findPosts($stateParams.userId, 'userId', testPosts);
     }]);
 })();
