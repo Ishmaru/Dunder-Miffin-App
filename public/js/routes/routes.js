@@ -2,7 +2,7 @@
   'use strict'
 
   angular
-  .module('dunderMiffinApp')
+  .module('dunderMifflinApp')
   .config(MainRouter);
 
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider'];

@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   angular
-    .module('dunderMiffinApp')
+    .module('dunderMifflinApp')
     .controller('UserController', ['UserService', '$scope', '$http', '$window', '$state', '$stateParams', function(UserService, $scope, $http, $window, $state, $stateParams) {
       if(UserService.user.id != $stateParams.userId){
         $window.location.href = '#!';

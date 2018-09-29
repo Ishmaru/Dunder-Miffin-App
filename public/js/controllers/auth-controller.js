@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   angular
-    .module('dunderMiffinApp')
+    .module('dunderMifflinApp')
     .controller('AuthController', ['UserService', '$window', '$scope', '$http', function(UserService, $window, $scope, $http) {
       $scope.auth = "Your Email Address";
       $scope.msg = "";

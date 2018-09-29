@@ -1,4 +1,4 @@
 (function() {
 'use strict';
-  var app = angular.module('dunderMiffinApp', ['ui.router'])
+  var app = angular.module('dunderMifflinApp', ['ui.router'])
 })();
