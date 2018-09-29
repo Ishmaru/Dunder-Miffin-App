@@ -16,6 +16,12 @@
         controller: 'AuthController',
         controllerAs: "vm"
       })
+      .state('user', {
+        url: '/users/:userId',
+        templateUrl: 'public/templates/user.html',
+        controller: 'UserController',
+        controllerAs: "vm"
+      })
       $urlRouterProvider.otherwise('/');
   }
 

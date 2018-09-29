@@ -7,17 +7,17 @@
       $scope.msg = "";
       $scope.user = {};
       $scope.validateEmail = function(){
-        $scope.user = findUser($scope.auth);
+        $scope.user = findUser($scope.auth, testApi);
         if(!$scope.user){
           $scope.msg = "Invalid Email";
         }else{
           $scope.msg = null;
         }
       };
-      var findUser = function(email){
-        for (var i = testApi.length - 1; i >= 0; i--) {
-          if(testApi[i].email === $scope.auth){
-            return testApi[i];
+      var findUser = function(email, api){
+        for (var i = api.length - 1; i >= 0; i--) {
+          if(api[i].email === $scope.auth){
+            return api[i];
           }
         }
       }

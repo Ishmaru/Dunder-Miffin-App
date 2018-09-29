@@ -1,0 +1,15 @@
+<div ng-controller="UserController">
+  <div class="profile-detail">
+    <h3>{{user.name}}</h3>
+    <span>{{user.address.street}}, {{user.address.suite}}</span>
+    <span>{{user.address.city}}, {{user.address.zipcode}}</span>
+    <span>{{user.phone}}</span>
+    <span>{{user.email}}</span>
+  </div>
+  <ul>
+    <li ng-repeat="post in posts">
+      <span ng-show="post">{{post.title}}</span>
+      <span ng-show="post">{{post.body}}</span>
+    </li>
+  </ul>
+</div>
