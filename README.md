@@ -1,7 +1,7 @@
 # Dunder Mifflin App
-###by Adrian Delpha
+### by Adrian Delpha
 
-###Techs used:
+### Techs used:
 * Angular 1.7.4
 * Bootstrap CSS 3.3
 * Jasmine
