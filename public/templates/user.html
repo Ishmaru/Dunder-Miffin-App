@@ -1,18 +1,18 @@
-<div ng-controller="UserController">
+<div>
   <div class="profile-detail">
     <h3>{{user.name}}</h3>
-    <span>{{user.address.street}}, {{user.address.suite}}</span>
-    <span>{{user.address.city}}, {{user.address.zipcode}}</span>
-    <span>{{user.phone}}</span>
-    <span>{{user.email}}</span>
+    <p>{{user.address.street}}, {{user.address.suite}}</p>
+    <p>{{user.address.city}}, {{user.address.zipcode}}</p>
+    <p>{{user.phone}}</p>
+    <p>{{user.email}}</p>
   </div>
   <ul>
     <li ng-repeat="post in posts">
-      <span>{{post.title}}</span>
+      <h3>{{post.title}}</h3>
       <p>{{post.body}}</p>
       <ul>
         <li ng-repeat="comment in post.comments">
-          <span>{{comment.email}}</span>
+          <h4>{{comment.title}}</h4>
           <p>{{comment.body}}</p>
         </li>
       </ul>

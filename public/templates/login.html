@@ -1,7 +1,7 @@
 <h1>Welcome to Dunder-Miffin</h1>
 <p>Welcome to the dunder-miffin international network.</p>
 <p>Please enter a username to view your posts and comments.</p>
-<form ng-controller="AuthController">
+<form>
   <span ng-show="msg">{{msg}}</span>
   <input type="email" name="email" ng-model="auth">
   <input type="submit" value="Submit" ng-click="validateEmail()">
