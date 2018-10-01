@@ -1,4 +1,4 @@
-var testApi = [
+var testApix = [
   {
     "id": 1,
     "name": "Leanne Graham",

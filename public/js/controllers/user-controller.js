@@ -6,6 +6,9 @@
       if(UserService.user.id != $stateParams.userId){
         $window.location.href = '#!';
       };
+      var postArray;
+      var commentArray;
+      $scope.posts;
       $scope.user = UserService.user;
       var findPosts = function(id, idName, arr){
         var tempArr = [];
@@ -17,12 +20,37 @@
         return tempArr;
       };
       var getPostCommentsObject = function(){
-        var tempPostObj = findPosts($stateParams.userId, 'userId', testPosts);
-        tempPostObj.map(function(post){
-          post.comments = findPosts(post.id, 'postId', testComments);
+        postArray.map(function(post){
+          post.comments = findPosts(post.id, 'postId', commentArray);
         });
-        return tempPostObj;
+        return postArray;
       }
-      $scope.posts = getPostCommentsObject();
+      var setUrlQueryParams = function(dataType, idArray, idName, joinName){
+        var tempIdArr = [];
+        if(Array.isArray(idArray)){
+          tempIdArr = idArray.map(post => String(post[idName]));
+          tempIdArr = tempIdArr.join('&' + joinName + '=');
+        } else {
+          tempIdArr = String(idArray);
+        }
+          return 'http://jsonplaceholder.typicode.com/' + dataType + '?' + joinName + '=' + tempIdArr;
+      }
+      var getPosts = function(dataType, id, idName, joinName){
+        $http({
+          method: 'GET',
+          url: setUrlQueryParams(dataType, id, idName, joinName)
+        }).then(function successCallback(res) {
+          if(idName == 'userId'){
+            postArray = res.data;
+            getPosts('comments', postArray, 'id', 'postId');
+          } else {
+            commentArray = res.data;
+            $scope.posts = getPostCommentsObject();
+          }
+        }, function errorCallback(err) {
+          $scope.msg = "Cannot Connect to Server";
+        });
+      }
+      getPosts('posts', $scope.user.id, 'userId', 'userId');
     }]);
 })();

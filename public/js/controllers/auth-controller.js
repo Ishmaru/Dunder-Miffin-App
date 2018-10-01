@@ -7,17 +7,24 @@
       $scope.msg = "";
       $scope.user = {};
       $scope.validateEmail = function(){
-        $scope.user = findUser($scope.auth, testApi);
-        if(!$scope.user){
-          $scope.msg = "Invalid Email";
-        }else{
-          $scope.msg = null;
-        }
-        if($scope.user){
-          UserService.user = $scope.user;
-          $window.location.href = '#!/users/'+$scope.user.id;
-        }
-      };
+        $http({
+          method: 'GET',
+          url: 'http://jsonplaceholder.typicode.com/users'
+        }).then(function successCallback(res) {
+          $scope.user = findUser($scope.auth, res.data);
+          if(!$scope.user){
+            $scope.msg = "Invalid Email";
+          }else{
+            $scope.msg = null;
+          }
+          if($scope.user){
+            UserService.user = $scope.user;
+            $window.location.href = '#!/users/'+$scope.user.id;
+          }
+        }, function errorCallback(err) {
+          $scope.msg = "Cannot Connect to Server";
+        });
+      }
       var findUser = function(email, api){
         for (var i = api.length - 1; i >= 0; i--) {
           if(api[i].email === $scope.auth){
