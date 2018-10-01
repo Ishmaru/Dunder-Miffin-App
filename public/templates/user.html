@@ -1,21 +1,40 @@
-<div>
-  <div class="profile-detail">
-    <h3>{{user.name}}</h3>
-    <p>{{user.address.street}}, {{user.address.suite}}</p>
-    <p>{{user.address.city}}, {{user.address.zipcode}}</p>
-    <p>{{user.phone}}</p>
-    <p>{{user.email}}</p>
-  </div>
-  <ul>
-    <li ng-repeat="post in posts">
-      <h3>{{post.title}}</h3>
-      <p>{{post.body}}</p>
-      <ul>
-        <li ng-repeat="comment in post.comments">
-          <h4>{{comment.title}}</h4>
-          <p>{{comment.body}}</p>
+<div class="container">
+  <div class="row list-group">
+    <div class="profile-detail list-group-item col-md-4 col-sm-12">
+      <h2 class="list-group-item active">Profile Detail</h2>
+      <div class="row">
+        <h3 class="col-md-offset-2 col-md-10 col-xs-12">{{user.name}}</h3>
+      </div>
+      <div class="row">
+        <span class="glyphicon glyphicon-map-marker col-md-2 .hidden-sm" aria-hidden="true"></span>
+        <div class="col-md-10 col-sm-12">
+          <p>{{user.address.street}}, {{user.address.suite}}</p>
+          <p>{{user.address.city}}, {{user.address.zipcode}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <span class="glyphicon glyphicon-phone col-md-2 .hidden-sm" aria-hidden="true"></span>
+        <p class="col-md-10 col-sm-12">{{user.phone}}</p>
+      </div>
+      <div class="row">
+        <span class="glyphicon glyphicon-envelope col-md-2 .hidden-sm" aria-hidden="true"></span>
+        <a class="col-md-10 col-sm-12" href="mailto:{{user.email}}" target="_top">{{user.email}}</a>
+      </div>
+    </div>
+    <div class="post-section col-md-8 col-sm-12">
+      <ul class="list-group">
+        <li ng-repeat="post in posts">
+          <h3 class="list-group-item active">{{post.title}}</h3>
+          <p class="list-group-item">{{post.body}}</p>
+          <ul>
+            <li class="comment" ng-repeat="comment in post.comments">
+              <h4 class="list-group-item info">{{comment.name}}</h4>
+              <p class="list-group-item">{{comment.body}}</p>
+            </li>
+          </ul>
         </li>
       </ul>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
+

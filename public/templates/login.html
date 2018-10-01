@@ -1,9 +1,18 @@
-<h1>Welcome to Dunder-Miffin</h1>
-<p>Welcome to the dunder-miffin international network.</p>
-<p>Please enter a username to view your posts and comments.</p>
-<form>
-  <span ng-show="msg">{{msg}}</span>
-  <input type="email" name="email" ng-model="auth">
-  <input type="submit" value="Submit" ng-click="validateEmail()">
-  <p ng-show="user">{{user.name}}</p>
-</form>
+<div class="page">
+  <div class="login">
+    <h1 class="bg-primary">Welcome to Dunder-Miffin</h1>
+    <p>Welcome to the dunder-miffin international network.</p>
+    <p>Please enter a username to view your posts and comments.</p>
+    <form>
+      <p class="bg-danger" ng-show="msg">{{msg}}</p>
+      <div class="row">
+        <div class="col-xs-9">
+          <input type="email" class="form-control" name="email" ng-model="auth" placeholder="Your Email Address">
+        </div>
+        <div class="col-xs-3">
+          <input type="submit" class="btn btn-default" value="Submit" ng-click="validateEmail()">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
