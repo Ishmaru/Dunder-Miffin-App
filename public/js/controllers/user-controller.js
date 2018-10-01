@@ -21,6 +21,7 @@
       };
       var getPostCommentsObject = function(){
         postArray.map(function(post){
+          post.active = false;
           post.comments = findPosts(post.id, 'postId', commentArray);
         });
         return postArray;
