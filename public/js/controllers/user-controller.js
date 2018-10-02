@@ -2,9 +2,9 @@
   'use strict';
   angular
     .module('dunderMifflinApp')
-    .controller('UserController', ['UserService', '$scope', '$http', '$window', '$state', '$stateParams', function(UserService, $scope, $http, $window, $state, $stateParams) {
+    .controller('UserController', ['UserService', '$scope', '$http', '$state', '$stateParams', function(UserService, $scope, $http, $state, $stateParams) {
       if(UserService.user.id != $stateParams.userId){
-        $window.location.href = '#!';
+        $state.go('login');
       };
       var postArray;
       var commentArray;

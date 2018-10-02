@@ -2,7 +2,7 @@
   'use strict';
   angular
     .module('dunderMifflinApp')
-    .controller('AuthController', ['UserService', '$window', '$scope', '$http', function(UserService, $window, $scope, $http) {
+    .controller('AuthController', ['UserService', '$scope', '$state', '$http', function(UserService, $scope, $state, $http) {
       $scope.auth = "";
       $scope.msg = "";
       $scope.user = {};
@@ -19,7 +19,7 @@
           }
           if($scope.user){
             UserService.user = $scope.user;
-            $window.location.href = '#!/users/'+$scope.user.id;
+            $state.go('user', {userId: $scope.user.id});
           }
         }, function errorCallback(err) {
           $scope.msg = "Cannot Connect to Server";
