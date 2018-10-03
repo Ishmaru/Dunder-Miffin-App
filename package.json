@@ -4,8 +4,8 @@
   "description": "Farmers Insurance Code Test",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "http-server ./ -p 8000"
+    "test": "node_modules/.bin/jasmine",
+    "start": "http-server ./ -p 8000"
   },
   "author": "Adrian Delpha",
   "license": "ISC",
